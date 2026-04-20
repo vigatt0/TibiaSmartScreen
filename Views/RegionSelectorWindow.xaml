@@ -1,0 +1,58 @@
+<Window x:Class="TibiaSmartScreen.Views.RegionSelectorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Select Region"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowState="Maximized"
+        Topmost="True"
+        ShowInTaskbar="False"
+        Cursor="Cross">
+    <Grid>
+        <!-- Full-screen dark overlay shown before drag starts -->
+        <Rectangle x:Name="DarkOverlay" Fill="#BB000000"/>
+
+        <!-- Canvas for the selection visuals -->
+        <Canvas x:Name="SelectionCanvas">
+            <!-- Four dark rectangles that surround the selected area (hole effect) -->
+            <Rectangle x:Name="OverlayTop"    Fill="#BB000000"/>
+            <Rectangle x:Name="OverlayBottom" Fill="#BB000000"/>
+            <Rectangle x:Name="OverlayLeft"   Fill="#BB000000"/>
+            <Rectangle x:Name="OverlayRight"  Fill="#BB000000"/>
+
+            <!-- Red selection border -->
+            <Rectangle x:Name="SelectionRect"
+                       Stroke="#FF1A1A"
+                       StrokeThickness="2"
+                       Fill="Transparent"/>
+
+            <!-- Dimension label -->
+            <Border x:Name="DimLabel"
+                    Background="#CC000000"
+                    CornerRadius="4"
+                    Padding="6,3">
+                <TextBlock x:Name="DimText"
+                           Foreground="#FF1A1A"
+                           FontSize="12"
+                           FontWeight="Bold"/>
+            </Border>
+        </Canvas>
+
+        <!-- Bottom instruction bar -->
+        <StackPanel VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,40"
+                    Orientation="Horizontal">
+            <Border Background="#CC000000" CornerRadius="6" Padding="14,8">
+                <TextBlock Foreground="#DDFFFFFF"
+                           FontSize="13">
+                    <Run FontWeight="Bold" Foreground="#FF1A1A">Drag</Run>
+                    <Run> to select a region  •  </Run>
+                    <Run FontWeight="Bold" Foreground="#FF1A1A">ESC</Run>
+                    <Run> to cancel</Run>
+                </TextBlock>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>
